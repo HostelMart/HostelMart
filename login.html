@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Add these in the <head> tag -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Hostel Mart</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: var(--bg);
+    }
+    .auth-card {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+    }
+    .otp-container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .otp-input {
+      width: 100%;
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 1.2rem;
+      border: 1px solid #E2E8F0;
+      border-radius: var(--border-radius);
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-card">
+      <h2>Welcome to Hostel Mart</h2>
+      <p class="mb-3">Login or register to start ordering</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" placeholder="10 digit phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="room">Room Number</label>
+          <input id="room" name="room" placeholder="Your hostel room" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Your email address" required>
+        </div>
+        <div class="form-group checkbox">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember me</label>
+        </div>
+        <button type="submit" class="auth-button">Send OTP</button>
+      </form>
+      
+      <div id="otpSection" class="hidden">
+        <h3>Enter OTP</h3>
+        <p>We've sent a 6-digit code to your email</p>
+        <div class="otp-container">
+          <input type="text" class="otp-input" maxlength="1">
+          <input type="text" class="otp-input" maxlength="1">
+          <input type="text" class="otp-input" maxlength="1">
+          <input type="text" class="otp-input" maxlength="1">
+          <input type="text" class="otp-input" maxlength="1">
+          <input type="text" class="otp-input" maxlength="1">
+        </div>
+        <button id="verifyBtn" class="auth-button mt-3">Verify & Login</button>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module">
+    import { setupLoginForm } from './assets/js/hostelmart.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      setupLoginForm();
+    });
+  </script>
+</body>
+</html>

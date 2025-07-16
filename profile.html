@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Add these in the <head> tag -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — Hostel Mart</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .profile-card {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .info-item:last-child {
+      border-bottom: none;
+    }
+    .order-card {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .order-status {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .status-pending { background: #FFE08A; color: #8A5D00; }
+    .status-confirmed { background: #A5D8FF; color: #0062A5; }
+    .status-out-for-delivery { background: #FFD8A5; color: #A56100; }
+    .status-delivered { background: #C3F0D0; color: #2B8A3E; }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <h1>Profile</h1>
+    <nav>
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='cart.html'">Cart</button>
+    </nav>
+  </header>
+  
+  <section class="container">
+    <div class="profile-card">
+      <h2>Personal Information</h2>
+      <div class="profile-info">
+        <div class="info-item">
+          <p>Full Name</p>
+          <p id="userName">-</p>
+        </div>
+        <div class="info-item">
+          <p>Email</p>
+          <p id="userEmail">-</p>
+        </div>
+        <div class="info-item">
+          <p>Phone</p>
+          <p id="userPhone">-</p>
+        </div>
+        <div class="info-item">
+          <p>Room Number</p>
+          <p id="userRoom">-</p>
+        </div>
+      </div>
+    </div>
+    
+    <h2>Order History</h2>
+    <div id="orderHistory">
+      <!-- Orders loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <script type="module">
+    import { loadUserProfile, updateCartCount } from './assets/js/hostelmart.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      loadUserProfile();
+      updateCartCount();
+    });
+  </script>
+</body>
+</html>

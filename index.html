@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add these in the <head> tag -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Mart</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="container">
+        <h1>Hostel Mart</h1>
+        <nav>
+            <button id="authButton" onclick="location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+            <button class="secondary" onclick="location.href='cart.html'">
+                <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span> Cart
+            </button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Delivery to your room in 5 minutes</h2>
+            <p>Order snacks, beverages and more right to your hostel room. Quick, convenient, and delicious!</p>
+            
+            <div class="search-container">
+                <input id="searchInput" placeholder="Search products...">
+                <span class="search-icon">🔍</span>
+            </div>
+            
+            <div class="grid grid-2 mt-4">
+                <div class="category-card" onclick="location.href='snacks.html'">
+                    <div class="icon">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <h2>Explore Snacks</h2>
+                    <p>Quick bites for your cravings</p>
+                </div>
+
+                <div class="category-card" onclick="location.href='cafe.html'">
+                    <div class="icon">
+                        <i class="fas fa-coffee"></i>
+                    </div>
+                    <h2>Discover Cafe</h2>
+                    <p>Hot & cold beverages to refresh you</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container products">
+        <h2>Featured Products</h2>
+        <p class="mb-3">Most popular items this week</p>
+        
+        <div class="product-grid" id="featuredProducts">
+            <!-- Products loaded via JavaScript -->
+        </div>
+    </section>
+
+    <script type="module">
+        import { handleAuthState, loadProducts, updateCartCount, setupProductSearch } from './assets/js/hostelmart.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            handleAuthState();
+            loadProducts('featuredProducts');
+            updateCartCount();
+            setupProductSearch('searchInput');
+        });
+    </script>
+</body>
+</html>

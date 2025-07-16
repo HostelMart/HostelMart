@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Add these in the <head> tag -->
+   <link rel="stylesheet" href="assets/css/styles.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snacks — Hostel Mart</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .product-card button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+    }
+    .product-card button:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <h1>Snacks</h1>
+    <nav>
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='cart.html'">Cart</button>
+    </nav>
+  </header>
+  
+  <section class="container">
+    <div class="search-container">
+      <input id="searchInput" placeholder="Search snacks...">
+      <span class="search-icon">🔍</span>
+    </div>
+    
+    <div class="product-grid" id="snacksGrid">
+      <!-- Products loaded via JavaScript -->
+    </div>
+  </section>
+  
+  <script type="module">
+    import { loadProducts, updateCartCount, setupProductSearch } from './assets/js/hostelmart.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      loadProducts('snacksGrid', 'Snacks');
+      updateCartCount();
+      setupProductSearch('searchInput');
+    });
+  </script>
+</body>
+</html>
